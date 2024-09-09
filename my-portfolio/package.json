@@ -14,13 +14,14 @@
     "@next/third-parties": "^14.1.3",
     "axios": "^1.6.8",
     "lottie-react": "^2.4.0",
-    "next": "^14.1.3",
+    "next": "^14.2.8",
     "react": "latest",
     "react-dom": "latest",
     "react-fast-marquee": "^1.6.2",
     "react-google-recaptcha": "^3.1.0",
     "react-icons": "^4.11.0",
     "react-toastify": "^10.0.4",
+    "sharp": "^0.33.5",
     "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {

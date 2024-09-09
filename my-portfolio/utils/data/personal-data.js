@@ -8,7 +8,7 @@ export const personalData = {
   },
   email: 'antoinecadeaupro@gmail.com',
   phone: '+33625054170',
-  address: '747 Route de Toulouse, 31570 Vallesvilles, France ',
+  address: '31570 Vallesvilles, France ',
   github: 'https://github.com/ancadeau',
   linkedIn: 'https://www.linkedin.com/in/antoinecadeau/',
   resume: "https://drive.google.com/file/d/18Wr_JI_AyHeiy-eqvVoteTHcCdx9FkJY/view?usp=sharing"

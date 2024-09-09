@@ -10,9 +10,9 @@ import ScrollToTop from "./components/helper/scroll-to-top";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Portfolio d'Antoine Cadeau",
+  title: "Portfolio de Antoine Cadeau",
   description:
-    "Ceci est le Portfolio d'Antoine Cadeau. Je suis un développeur full stack et un développeur autodidacte. J'aime apprendre de nouvelles choses et je suis toujours ouvert à collaborer avec les autres. J'apprends vite et je suis toujours à la recherche de nouveaux défis.",
+    "Ceci est le Portfolio de Antoine Cadeau. Je suis un développeur full stack et un développeur autodidacte. J'aime apprendre de nouvelles choses et je suis toujours ouvert à collaborer avec les autres. J'apprends vite et je suis toujours à la recherche de nouveaux défis.",
 };
 
 export default function RootLayout({ children }) {
