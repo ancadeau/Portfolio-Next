@@ -56,30 +56,18 @@ Suivez ces étapes pour cloner et exécuter le projet localement.
 Voici un aperçu de la structure des fichiers et dossiers du projet :
 
 ```
-├── app
-│   ├── api
-│   ├── components
-│   ├── css
-│   ├── favicon.ico
-│   ├── layout.js
-│   └── page.js
-├── public
-│   ├── PP.jpg
-│   ├── image
-│   ├── lottie
-│   ├── png
-│   ├── section.svg
-│   └── svg
-└── utils
-│   ├── check-email.js
-│   ├── data
-│   ├── skill-image.js
-│   └── time-converter.js
-├── jsconfig.json
-├── next.config.js
-├── package-lock.json
-├── package.json
-├── postcss.config.js
+.
 ├── README.md
-└── tailwind.config.js
+├── docker-compose.yml
+└── my-portfolio
+    ├── Dockerfile
+    ├── app
+    ├── jsconfig.json
+    ├── next.config.js
+    ├── package-lock.json
+    ├── package.json
+    ├── postcss.config.js
+    ├── public
+    ├── tailwind.config.js
+    └── utils
 ```
