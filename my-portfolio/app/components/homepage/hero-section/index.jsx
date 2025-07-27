@@ -1,14 +1,18 @@
-  // @flow strict
+  'use client';
 
-  import { personalData } from "@/utils/data/personal-data";
-  import Image from "next/image";
-  import Link from "next/link";
-  import { BsGithub, BsGoogle, BsLinkedin } from "react-icons/bs";
-  import { MdDownload } from "react-icons/md";
-  import { RiContactsFill } from "react-icons/ri";
-  import Type from "./type";
+  import { getPersonalData } from "@/utils/data";
+import Image from "next/image";
+import Link from "next/link";
+import { BsGithub, BsGoogle, BsLinkedin } from "react-icons/bs";
+import { MdDownload } from "react-icons/md";
+import { RiContactsFill } from "react-icons/ri";
+import Type from "./type";
+import { useTranslation } from "@/lib/translation";
 
   function HeroSection() {
+  const { t, language } = useTranslation();
+  const personalData = getPersonalData(language);
+
     return (
       <section className="relative flex flex-col items-center justify-between py-4 lg:py-12">
         <Image
@@ -23,10 +27,10 @@
         <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8">
           <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">
             <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
-              Salut ! <span className="animate-waving-hand">👋</span> <br />
-              Je suis {' '}
+              {t('hero.greeting')} <span className="animate-waving-hand">👋</span> <br />
+              {t('hero.name')} {' '}
               <span className=" text-pink-500">{personalData.name}</span>
-              {` , je suis un `}
+              {` , `}{t('hero.title')}
               <Type />
             </h1>
 
@@ -50,14 +54,14 @@
             <div className="flex items-center gap-3">
               <Link href="#contact" className="bg-gradient-to-r to-pink-500 from-violet-600 p-[1px] rounded-full transition-all duration-300 hover:from-pink-500 hover:to-violet-600">
                 <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#0d1224] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
-                  <span>Contactez moi</span>
+                  <span>{t('contact.title')}</span>
                   <RiContactsFill size={16} />
                 </button>
               </Link>
 
               <Link className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-3 md:px-8 py-3 md:py-4 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold" role="button" target="_blank" href={personalData.resume}
               >
-                <span>Mon CV</span>
+                <span>CV</span>
                 <MdDownload size={16} />
               </Link>
             </div>
@@ -84,13 +88,13 @@
                   <span className="text-gray-400">{'{'}</span>
                 </div>
                 <div>
-                  <span className="ml-4 lg:ml-8 mr-2 text-white">nom:</span>
+                  <span className="ml-4 lg:ml-8 mr-2 text-white">name:</span>
                   <span className="text-gray-400">{`'`}</span>
                   <span className="text-amber-300">Antoine Cadeau</span>
                   <span className="text-gray-400">{`',`}</span>
                 </div>
                 <div className="ml-4 lg:ml-8 mr-2">
-                  <span className=" text-white">compétences:</span>
+                  <span className=" text-white">skills:</span>
                   <span className="text-gray-400">{`['`}</span>
                   <span className="text-amber-300">C</span>
                   <span className="text-gray-400">{"', '"}</span>

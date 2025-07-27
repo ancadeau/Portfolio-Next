@@ -5,6 +5,7 @@ export const skillsData = [
   'Next JS',
   'Typescript',
   'Docker',
+  'Kubernetes',
   'Markdown',
   'C',
   'C++',

@@ -1,9 +1,12 @@
-// @flow strict
+'use client';
 import Link from 'next/link';
 import { CgGitFork } from "react-icons/cg";
 import { IoStar } from "react-icons/io5";
+import { useTranslation } from "@/lib/translation";
 
 function Footer() {
+  const { t } = useTranslation();
+
   return (
     <div className="relative border-t bg-[#0d1224] border-[#353951] text-white">
       <div className="mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] py-6 lg:py-10">
@@ -12,7 +15,7 @@ function Footer() {
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between">
           <p className="text-sm">
-            © Portfolio fait par <Link target="_blank" href="https://www.linkedin.com/in/antoinecadeau/" className="text-[#16f2b3]">Antoine Cadeau</Link>
+            © {t('footer.rights')} <Link target="_blank" href="https://www.linkedin.com/in/antoinecadeau/" className="text-[#16f2b3]">Antoine Cadeau</Link>
           </p>
           <div className="flex items-center gap-5">
             <Link

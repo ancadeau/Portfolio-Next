@@ -1,5 +1,4 @@
 "use client";
-// @flow strict
 import { isValidEmail } from '@/utils/check-email';
 import emailjs from '@emailjs/browser';
 import axios from 'axios';
@@ -7,8 +6,10 @@ import { useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { TbMailForward } from "react-icons/tb";
 import { toast } from 'react-toastify';
+import { useTranslation } from '@/lib/translation';
 
 function ContactWithCaptcha() {
+  const { t } = useTranslation();
   const [input, setInput] = useState({
     name: '',
     email: '',
@@ -73,8 +74,8 @@ function ContactWithCaptcha() {
       console.log(13);
       if (res.status === 200) {
         console.log(14);
-        toast.success('Message sent successfully!');
-        setUserInput({
+        toast.success(t('contact.success'));
+        setInput({
           name: '',
           email: '',
           message: '',
@@ -85,22 +86,22 @@ function ContactWithCaptcha() {
     } catch (error) {
       console.log(16);
       console.log(error)
-      toast.error(error?.text || error);
+      toast.error(t('contact.error'));
     };
   };
 
   return (
     <div className="">
       <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">
-        Contactez moi
+        {t('contact.subtitle')}
       </p>
       <div className="max-w-3xl text-white rounded-lg border border-[#464c6a] p-3 lg:p-5">
         <p className="text-sm text-[#d3d8e8]">
-          {"Si vous avez des questions, n'hésitez pas à me contacter. Je suis ouvert à toute opportunité de travail correspondant à mes compétences et intérêts."}
+          {t('contact.subtitle')}
         </p>
         <div className="mt-6 flex flex-col gap-4">
           <div className="flex flex-col gap-2">
-            <label className="text-base">Votre Nom: </label>
+            <label className="text-base">{t('contact.name')}: </label>
             <input
               className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] ring-0 outline-0 transition-all duration-300 px-3 py-2"
               type="text"
@@ -113,7 +114,7 @@ function ContactWithCaptcha() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-base">Votre Email: </label>
+            <label className="text-base">{t('contact.email')}: </label>
             <input
               className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] ring-0 outline-0 transition-all duration-300 px-3 py-2"
               type="email"
@@ -132,7 +133,7 @@ function ContactWithCaptcha() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-base">Votre Message: </label>
+            <label className="text-base">{t('contact.message')}: </label>
             <textarea
               className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] ring-0 outline-0 transition-all duration-300 px-3 py-2"
               maxLength="500"
@@ -160,7 +161,7 @@ function ContactWithCaptcha() {
               role="button"
               onClick={handleSendMail}
             >
-              <span>Envoyer Message</span>
+              <span>{t('contact.send')}</span>
               <TbMailForward className="mt-1" size={18} />
             </button>
           </div>

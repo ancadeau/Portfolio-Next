@@ -19,6 +19,7 @@ import deno from '/public/svg/skills/deno.svg';
 import django from '/public/svg/skills/django.svg';
 import docker from '/public/svg/skills/docker.svg';
 import fastify from '/public/svg/skills/fastify.svg';
+import kubernetes from '/public/svg/skills/kubernetes.svg';
 import figma from '/public/svg/skills/figma.svg';
 import firebase from '/public/svg/skills/firebase.svg';
 import flutter from '/public/svg/skills/flutter.svg';
@@ -85,6 +86,8 @@ export const skillsImage = (skill) => {
       return photoshop;
     case 'docker':
       return docker;
+    case 'kubernetes':
+      return kubernetes;
     case 'illustrator':
       return illustrator;
     case 'adobe xd':

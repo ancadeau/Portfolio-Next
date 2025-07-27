@@ -1,17 +1,29 @@
 "use client"
-// @flow strict
 
 import TypewriterComponent from "typewriter-effect"
+import { useTranslation } from "@/lib/translation";
 
 function Type() { 
+    const { t, language } = useTranslation();
+    
+    const frenchStrings = [
+        "Diplômé Expert en Ingénierie Logicielle",
+        "Développeur Backend & DevOps",
+        "Product Owner Agile",
+    ];
+    
+    const englishStrings = [
+        "Software Engineering Expert Graduate",
+        "Backend & DevOps Developer",
+        "Agile Product Owner",
+    ];
+    
+    const strings = language === 'en' ? englishStrings : frenchStrings;
+    
     return (
         <TypewriterComponent 
             options={{
-                strings: [
-                    "Étudiant en programmation à Epitech Toulouse",
-                    "Développeur full stack web",
-                    "Développeur DevOps",
-                ],
+                strings: strings,
                 autoStart: true,
                 loop: true,
                 deleteSpeed: 20,

@@ -1,12 +1,13 @@
 "use client";
-// @flow strict
 import { isValidEmail } from '@/utils/check-email';
 import axios from 'axios';
 import { useState } from 'react';
 import { TbMailForward } from "react-icons/tb";
 import { toast } from 'react-toastify';
+import { useTranslation } from '@/lib/translation';
 
 function ContactWithoutCaptcha() {
+  const { t } = useTranslation();
   const [error, setError] = useState({ email: false, required: false });
   const [userInput, setUserInput] = useState({
     name: '',
@@ -40,7 +41,7 @@ function ContactWithoutCaptcha() {
       const teleRes = await axios.post(`${process.env.NEXT_PUBLIC_APP_URL}/api/contact`, userInput);
 
       if (res.status === 200 || teleRes.status === 200) {
-        toast.success('Message sent successfully!');
+        toast.success(t('contact.success'));
         setUserInput({
           name: '',
           email: '',
@@ -48,22 +49,22 @@ function ContactWithoutCaptcha() {
         });
       };
     } catch (error) {
-      toast.error(error?.text || error);
+      toast.error(t('contact.error'));
     };
   };
 
   return (
     <div className="">
       <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">
-        Contactez moi
+        {t('contact.subtitle')}
       </p>
       <div className="max-w-3xl text-white rounded-lg border border-[#464c6a] p-3 lg:p-5">
         <p className="text-sm text-[#d3d8e8]">
-          {"Si vous avez des questions, n'hésitez pas à me contacter. Je suis ouvert à toute opportunité de travail correspondant à mes compétences et intérêts."}
+          {t('contact.subtitle')}
         </p>
         <div className="mt-6 flex flex-col gap-4">
           <div className="flex flex-col gap-2">
-            <label className="text-base">Votre Nom: </label>
+            <label className="text-base">{t('contact.name')}: </label>
             <input
               className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] ring-0 outline-0 transition-all duration-300 px-3 py-2"
               type="text"
@@ -76,7 +77,7 @@ function ContactWithoutCaptcha() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-base">Votre Email: </label>
+            <label className="text-base">{t('contact.email')}: </label>
             <input
               className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] ring-0 outline-0 transition-all duration-300 px-3 py-2"
               type="email"
@@ -95,7 +96,7 @@ function ContactWithoutCaptcha() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-base">Votre Message: </label>
+            <label className="text-base">{t('contact.message')}: </label>
             <textarea
               className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] ring-0 outline-0 transition-all duration-300 px-3 py-2"
               maxLength="500"
@@ -118,7 +119,7 @@ function ContactWithoutCaptcha() {
               role="button"
               onClick={handleSendMail}
             >
-              <span>Envoyer Message</span>
+              <span>{t('contact.send')}</span>
               <TbMailForward className="mt-1" size={18} />
             </button>
           </div>
