@@ -11,5 +11,5 @@ export const personalDataFr = {
   address: '31570 Vallesvilles, France ',
   github: 'https://github.com/ancadeau',
   linkedIn: 'https://www.linkedin.com/in/antoinecadeau/',
-  resume: "https://drive.google.com/file/d/18Wr_JI_AyHeiy-eqvVoteTHcCdx9FkJY/view?usp=sharing"
+  resume: "https://drive.google.com/file/d/1Siu0dBWGCg70LEIF8TKLuvoteADEPVR6/view?usp=sharing"
 } 
